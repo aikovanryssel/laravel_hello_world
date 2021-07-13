@@ -8,22 +8,7 @@
             <div class="space-y-2 lg:space-y-0 lg:space-x-4 mt-4">
                 <!--  Category -->
                 <div class="relative flex lg:inline-flex items-center bg-gray-100 rounded-xl">
-                    <x-dropdown>
-                        <x-slot name="trigger">
-                            <button class="p-2 ">
-                                <strong>
-                                    {{ isset($currentCategory) ? ucwords($currentCategory->name) : "Categories" }}
-                                </strong>
-                            </button>
-                        </x-slot>
-                        <x-dropdownitem href="/">All</x-dropdownitem>
-                        @foreach ($categories as $category)   
-                            <x-dropdownitem href="/categories/{{ $category->slug }}" :active="isset($currentCategory)&&$currentCategory->is($category)"> 
-                                {{ ucwords($category->name) }}
-                            </x-dropdownitem>
-                            
-                        @endforeach
-                    </x-dropdown>
+                    <x-category-dropdown/>
                 </div>
                 {{-- <div class="relative flex lg:inline-flex items-center bg-gray-100 rounded-xl">
                     <select class="flex-1 appearance-none bg-transparent py-2 pl-3 pr-9 text-sm font-semibold">
