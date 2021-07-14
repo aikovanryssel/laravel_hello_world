@@ -29,9 +29,9 @@ Route::get('posts/{post:slug}', [PostController::class,'show']);
 //         'categories'=>Category::all()
 //     ]);
 // });
-Route::get('authors/{author:username}',function(User $author){
-    return view('posts',[
-        //'posts'=> $author->posts->load(['category','author'])
-        'posts'=> $author->posts,
-    ]);
-});
+// Route::get('authors/{author:username}',function(User $author){
+//     return view('posts.index',[
+//         //'posts'=> $author->posts->load(['category','author'])
+//         'posts'=> $author->posts,
+//     ]);
+// });
