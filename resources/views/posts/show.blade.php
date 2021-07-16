@@ -61,6 +61,16 @@
                                 </p>
                             </div>
                         </div>
+                        <section class="col-span-8 col-start-5 mt-10 space-y-6">
+                            {{ $post->comments }}
+                            @if(isset($post->comments) )
+                                @foreach ( $post->comments as $comment )
+                                    <x-post-comment :comment="$comment"/>
+                                @endforeach
+                            @else
+                                <p>No comments found</p>
+                            @endif
+                        </section>
                     </article>
                 </main>
             </section>

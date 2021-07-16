@@ -14,8 +14,22 @@
                 </a>
             </div>
 
-            <div class="mt-8 md:mt-0">
-                <a href="/register" class="text-xs font-bold uppercase">Register</a>
+            <div class="mt-8 md:mt-0 flex ">
+                @auth
+                    <p class=" place-self-center text-xs  font-bold uppercase">Welcome,{{auth()->user()->name }}!</p>
+
+
+                    <form class="place-self-center" method="POST" action="/logout">
+                    @csrf
+                    
+                        <button type="submit" class=" hover:text-blue-600 ml-4 p-3 text-blue-500  text-xs uppercase"> Log out</button>
+                    </form>
+                @endauth
+                    
+                @guest
+                    <a href="/register" class=" place-self-center text-xs font-bold uppercase">Register</a>
+                    <a href="/login" class="ml-4 place-self-center text-xs font-bold uppercase">Log in</a>
+                @endguest
 
                 <a href="#" class="bg-blue-500 ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-5">
                     Subscribe for Updates
